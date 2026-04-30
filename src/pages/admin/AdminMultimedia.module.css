@@ -1,0 +1,80 @@
+.cvBanner {
+  background: var(--dk);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.cvBannerLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--yw);
+  margin-bottom: 4px;
+}
+
+.cvBannerName {
+  font-size: 13px;
+  color: var(--cr);
+}
+
+.cvDownloadBtn {
+  background: var(--yw);
+  color: var(--dk);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition);
+}
+
+.cvDownloadBtn:hover {
+  opacity: 0.85;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 9px 12px;
+  border: 0.5px solid #ddd;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  font-size: 14px;
+  color: #111;
+  transition: border-color var(--transition);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--dk);
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 2rem;
+}
+
+.modal {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  margin-bottom: 1.5rem;
+}
