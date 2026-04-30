@@ -1,0 +1,145 @@
+.hero {
+  background: var(--dk);
+  padding: 4rem 2rem 3.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--yw);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+.heroSub {
+  color: var(--cr);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 12px;
+}
+
+.ctaPrimary {
+  background: var(--yw);
+  color: var(--dk);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition);
+}
+
+.ctaPrimary:hover {
+  opacity: 0.85;
+}
+
+.ctaGhost {
+  background: transparent;
+  color: var(--cr);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  border: 0.5px solid rgba(242, 235, 215, 0.4);
+  transition: border-color var(--transition);
+}
+
+.ctaGhost:hover {
+  border-color: var(--cr);
+}
+
+.section {
+  padding: 2.5rem 2rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--dk);
+}
+
+.seeAll {
+  font-size: 12px;
+  color: #888;
+  text-decoration: underline;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.blogCard {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 0.5px solid #e0e0e0;
+  background: #fff;
+  transition: transform var(--transition);
+  display: block;
+}
+
+.blogCard:hover {
+  transform: translateY(-2px);
+}
+
+.blogThumb {
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.875rem;
+}
+
+.thumb0 { background: var(--dk); }
+.thumb1 { background: var(--lc); }
+.thumb2 { background: var(--yw); }
+
+.tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 99px;
+  display: inline-block;
+}
+
+.tagArticle { background: var(--lc); color: var(--lc-dark); }
+.tagProject { background: var(--yw); color: var(--dk); }
+.tagResource { background: var(--cr); color: var(--cr-dark); }
+
+.blogInfo {
+  padding: 0.875rem;
+}
+
+.blogInfo h3 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.blogInfo p {
+  font-size: 12px;
+  color: #888;
+}
+
+.loading, .empty {
+  font-size: 14px;
+  color: #aaa;
+  padding: 2rem 0;
+}
