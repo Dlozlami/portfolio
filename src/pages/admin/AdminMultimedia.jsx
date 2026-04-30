@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase.js'
 import styles from './AdminForm.module.css'
 import mStyles from './AdminMultimedia.module.css'
@@ -43,7 +43,12 @@ export default function AdminMultimedia() {
     setUploading(true)
     const ext = selectedFile.name.split('.').pop()
     const filename = `${Date.now()}.${ext}`
-    await supabase.storage.from(bucket).upload(filename, selectedFile, { upsert: true })
+    const { error } = await supabase.storage
+      .from(bucket)
+      .upload(filename, selectedFile, { upsert: true })
+    if (error) {
+      alert(`Upload failed: ${error.message}`)
+    }
     setUploading(false)
     setShowModal(false)
     setSelectedFile(null)
@@ -157,8 +162,11 @@ export default function AdminMultimedia() {
             </thead>
             <tbody>
               {filtered.map(file => (
-                <>
-                  <tr key={file.name} onClick={() => setExpanded(expanded === file.name ? null : file.name)} style={{ cursor: 'pointer' }}>
+                <React.Fragment key={file.name}>
+                  <tr
+                    onClick={() => setExpanded(expanded === file.name ? null : file.name)}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <td>{file.name}</td>
                     <td>
                       <span className={`${styles.badge} ${file.bucket === 'cv' ? styles.badgeProject : styles.badgeArticle}`}>
@@ -168,17 +176,23 @@ export default function AdminMultimedia() {
                     <td>{formatSize(file.metadata?.size)}</td>
                     <td>
                       <div className={styles.rowActions}>
-                        <button onClick={(e) => { e.stopPropagation(); copyUrl(file) }} className={styles.editLink}>
+                        <button
+                          onClick={e => { e.stopPropagation(); copyUrl(file) }}
+                          className={styles.editLink}
+                        >
                           {copied === file.name ? 'Copied ✓' : 'Copy URL'}
                         </button>
-                        <button onClick={(e) => { e.stopPropagation(); handleDelete(file) }} className={styles.delLink}>
+                        <button
+                          onClick={e => { e.stopPropagation(); handleDelete(file) }}
+                          className={styles.delLink}
+                        >
                           Delete
                         </button>
                       </div>
                     </td>
                   </tr>
                   {expanded === file.name && (
-                    <tr key={`${file.name}-expanded`}>
+                    <tr>
                       <td colSpan={4} style={{ background: '#fafafa', padding: '1rem 1.5rem' }}>
                         <p style={{ fontSize: '11px', color: '#888', marginBottom: '6px', fontWeight: 500 }}>PUBLIC URL</p>
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
@@ -192,7 +206,7 @@ export default function AdminMultimedia() {
                       </td>
                     </tr>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </tbody>
           </table>
