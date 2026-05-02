@@ -4,7 +4,7 @@
 
 Personal portfolio site — **Dlozi Lloyd Mthethwa**
 
-Ecosystem Architect · Software Developer · Information Designer · Provincial Lead at mLab Southern Africa
+Ecosystem Architect · Software Developer · Information Designer
 
 🌐 **Live:** [portfolio-wrwi.onrender.com](https://portfolio-wrwi.onrender.com)
 
